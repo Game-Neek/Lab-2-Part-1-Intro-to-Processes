@@ -30,7 +30,7 @@ int main (){
 void child_process(){
   int pid = getpid();
   int parent_pid = getppid();
-  srandom(pid % 42); // seeding random number
+  srandom((unsigned)time(NULL) ^ (unsigned)getpid() ); // seeding random number
   int n = 1 + (random() % 30); // random number no more than 30
   int i;
   for (i=0; i < n; i++){
